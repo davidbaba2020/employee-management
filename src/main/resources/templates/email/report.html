@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Report</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f0f4f8;font-family:'Helvetica Neue',Arial,sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0f4f8;padding:30px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+          <!-- ── Banner ── -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#4A235A 0%,#6C3483 60%,#9B59B6 100%);
+                        border-radius:12px 12px 0 0;padding:40px 30px;text-align:center;">
+              <div style="font-size:42px;margin-bottom:10px;">📎</div>
+              <h1 style="color:#ffffff;margin:0;font-size:26px;font-weight:700;letter-spacing:1px;">
+                Employee Management System
+              </h1>
+              <p style="color:#D7BDE2;margin:8px 0 0;font-size:13px;letter-spacing:0.5px;">
+                Reports &amp; Analytics · Requested Export
+              </p>
+            </td>
+          </tr>
+
+          <!-- ── Body ── -->
+          <tr>
+            <td style="background:#ffffff;padding:40px 36px;">
+
+              <h2 style="color:#4A235A;margin-top:0;font-size:22px;">
+                Your employee report is ready! 🗂️
+              </h2>
+
+              <p style="color:#4a4a4a;line-height:1.7;font-size:15px;">
+                As requested, your employee report has been generated and is attached to this email.
+                Please find the details of your export below.
+              </p>
+
+              <!-- Report details card -->
+              <table width="100%" cellpadding="0" cellspacing="0"
+                     style="background:#F5EEF8;border-radius:10px;margin:24px 0;overflow:hidden;">
+                <tr>
+                  <td style="background:#6C3483;padding:12px 20px;">
+                    <p style="margin:0;color:#ffffff;font-weight:700;font-size:13px;
+                                text-transform:uppercase;letter-spacing:0.5px;">Report Details</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:20px;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding:6px 0;color:#6C3483;font-size:13px;font-weight:700;width:40%;">
+                          Format
+                        </td>
+                        <td style="padding:6px 0;color:#4a4a4a;font-size:13px;">
+                          <span th:if="${format == 'pdf'}"
+                                style="background:#FDEDEC;color:#C0392B;padding:3px 10px;
+                                        border-radius:20px;font-weight:700;font-size:12px;">
+                            📄 PDF Document
+                          </span>
+                          <span th:if="${format == 'excel'}"
+                                style="background:#EAFAF1;color:#1E8449;padding:3px 10px;
+                                        border-radius:20px;font-weight:700;font-size:12px;">
+                            📊 Excel Spreadsheet
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 0;color:#6C3483;font-size:13px;font-weight:700;">
+                          Total Records
+                        </td>
+                        <td style="padding:6px 0;color:#4a4a4a;font-size:13px;font-weight:700;"
+                            th:text="${totalRecords + ' employees'}">0 employees</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 0;color:#6C3483;font-size:13px;font-weight:700;">
+                          Generated At
+                        </td>
+                        <td style="padding:6px 0;color:#4a4a4a;font-size:13px;"
+                            th:text="${generatedAt}">—</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 0;color:#6C3483;font-size:13px;font-weight:700;">
+                          Sent To
+                        </td>
+                        <td style="padding:6px 0;color:#4a4a4a;font-size:13px;"
+                            th:text="${recipientEmail}">—</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Reminder card -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                <tr>
+                  <td style="background:#FEF9E7;border-left:4px solid #F39C12;
+                              border-radius:0 8px 8px 0;padding:14px 18px;">
+                    <p style="margin:0;color:#784212;font-weight:700;font-size:13px;">
+                      🔒 Confidentiality Reminder
+                    </p>
+                    <p style="margin:5px 0 0;color:#555;font-size:13px;line-height:1.6;">
+                      This report contains sensitive employee information. Please handle it in
+                      accordance with your company's data privacy policy and do not forward or
+                      share it with unauthorized recipients.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="color:#4a4a4a;line-height:1.7;font-size:14px;
+                          border-top:1px solid #ECF0F1;padding-top:18px;">
+                Report generated by
+                <strong th:text="${companyName}">The Company</strong>
+                Employee Management System. For questions, contact your system administrator.
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- ── Footer ── -->
+          <tr>
+            <td style="background:#4A235A;border-radius:0 0 12px 12px;padding:22px 30px;text-align:center;">
+              <p style="color:#D7BDE2;margin:0;font-size:12px;"
+                 th:text="${companyName + ' — Confidential Report'}">Company — Confidential Report</p>
+              <p style="color:#A569BD;margin:6px 0 0;font-size:11px;">
+                This is an automated message. Please do not reply directly to this email.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Deactivated</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f0f4f8;font-family:'Helvetica Neue',Arial,sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0f4f8;padding:30px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+          <!-- ── Banner ── -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#7B1A1A 0%,#C0392B 60%,#E74C3C 100%);
+                        border-radius:12px 12px 0 0;padding:40px 30px;text-align:center;">
+              <div style="font-size:42px;margin-bottom:10px;">🔒</div>
+              <h1 style="color:#ffffff;margin:0;font-size:26px;font-weight:700;letter-spacing:1px;">
+                Employee Management System
+              </h1>
+              <p style="color:#FADBD8;margin:8px 0 0;font-size:13px;letter-spacing:0.5px;">
+                Human Resources · Account Notification
+              </p>
+            </td>
+          </tr>
+
+          <!-- ── Body ── -->
+          <tr>
+            <td style="background:#ffffff;padding:40px 36px;">
+
+              <h2 style="color:#7B1A1A;margin-top:0;font-size:22px;">
+                Account Deactivated — <span th:text="${employeeName}" style="color:#C0392B;">Employee</span>
+              </h2>
+
+              <p style="color:#4a4a4a;line-height:1.7;font-size:15px;">
+                We are writing to inform you that your employee account has been
+                <strong>deactivated</strong> in our system. All associated access and permissions
+                have been revoked effective immediately.
+              </p>
+
+              <!-- Warning card -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+                <tr>
+                  <td style="background:#FDEDEC;border-left:4px solid #C0392B;
+                              border-radius:0 8px 8px 0;padding:16px 20px;">
+                    <p style="margin:0;color:#7B1A1A;font-weight:700;font-size:15px;">
+                      ⚠️ Your account access has been removed
+                    </p>
+                    <p style="margin:6px 0 0;color:#555;font-size:13px;line-height:1.6;">
+                      If you believe this deactivation was made in error, please contact your
+                      HR department <strong>immediately</strong> to resolve this matter.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- What this means -->
+              <p style="color:#4a4a4a;font-size:15px;margin-bottom:8px;"><strong>What this means:</strong></p>
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:5px 0;">
+                    <span style="color:#C0392B;font-size:16px;">✗</span>
+                    <span style="color:#4a4a4a;font-size:14px;margin-left:8px;">System access has been revoked</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:5px 0;">
+                    <span style="color:#C0392B;font-size:16px;">✗</span>
+                    <span style="color:#4a4a4a;font-size:14px;margin-left:8px;">Your employee profile is now inactive</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:5px 0;">
+                    <span style="color:#27AE60;font-size:16px;">✓</span>
+                    <span style="color:#4a4a4a;font-size:14px;margin-left:8px;">Your employment records are securely retained</span>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="color:#4a4a4a;line-height:1.7;font-size:15px;margin-top:24px;">
+                Thank you for your time and contributions. We wish you all the best in your future endeavors.
+              </p>
+
+              <p style="color:#4a4a4a;font-size:15px;margin-bottom:4px;">Sincerely,</p>
+              <p style="color:#7B1A1A;font-weight:700;font-size:16px;margin:0;"
+                 th:text="${companyName}">The Company</p>
+            </td>
+          </tr>
+
+          <!-- ── Footer ── -->
+          <tr>
+            <td style="background:#7B1A1A;border-radius:0 0 12px 12px;padding:22px 30px;text-align:center;">
+              <p style="color:#FADBD8;margin:0;font-size:12px;"
+                 th:text="${companyName + ' — Confidential'}">Company — Confidential</p>
+              <p style="color:#F1948A;margin:6px 0 0;font-size:11px;">
+                This is an automated message. Please do not reply directly to this email.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
